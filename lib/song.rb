@@ -1,11 +1,13 @@
 require 'pry'
 class Song 
-  attr_accessor :name 
+  attr_accessor :name, :artist, :genre
   
   @@all = []
   
-  def initialize(name)
+  def initialize(name, artist = nil, genre = nil)
     @name = name
+    artist != nil ? self.artist=(artist) : @artist = nil
+    genre != nil ? self.genre=(genre) : @genre = nil
     save
   end
   
@@ -22,9 +24,18 @@ class Song
   end
   
   def self.create(song)
-    new_song = self.new(song)
-    new_song.save
-    new_song
+    self.new(song).tap {|new_song| new_song.save}
   end
+  
+  def artist=(artist)
+    @artist = artist
+    artist.add_song(self)
+  end  
+   
+  def genre=(genre)
+    @genre = genre
+    genre.songs << self unless genre.songs.include?(self)
+  end
+ 
   
 end
