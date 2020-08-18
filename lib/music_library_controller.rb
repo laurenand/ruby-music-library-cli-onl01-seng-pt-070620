@@ -44,5 +44,5 @@ class MusicLibraryController
     sorted_artists.each_with_index {|artist, i| puts "#{i + 1}. #{artist.name}"}
    
   end
-
-end binding.pry
+binding.pry
+end 
