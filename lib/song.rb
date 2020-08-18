@@ -46,7 +46,6 @@ class Song
     if !song.nil?
       song
     else
-    
     self.create(song)
   end
   
