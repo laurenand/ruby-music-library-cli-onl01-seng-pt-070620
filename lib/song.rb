@@ -52,9 +52,13 @@ class Song
     song = self.new(data[1], artist, genre)
   end
     
-  def self.create_from_filename(filename)
-    song = self.new_from_filename(filename)
-    song.save
+  def self.find_or_create_by_name(name)
+    artist = Artist.all.find {|artist| artist.name == name}
+    if !artist.nil?
+      artist
+    else
+      Artist.new(name)
+    end
   end
  
   
