@@ -8,7 +8,6 @@ class Song
     @name = name
     artist != nil ? self.artist=(artist) : @artist = nil
     genre != nil ? self.genre=(genre) : @genre = nil
-    save
   end
   
   def self.all
