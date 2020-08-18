@@ -47,6 +47,7 @@ class Song
       song
     else
     self.create(song)
+    end
   end
   
   def self.new_from_filename(filename)
