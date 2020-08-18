@@ -53,11 +53,11 @@ class Song
   end
     
   def self.find_or_create_by_name(name)
-    artist = Artist.all.find {|artist| artist.name == name}
-    if !artist.nil?
-      artist
+    song = Song.all.find {|song| song.name == name}
+    if !song.nil?
+      song
     else
-      Artist.new(name)
+      Song.new(name)
     end
   end
  
