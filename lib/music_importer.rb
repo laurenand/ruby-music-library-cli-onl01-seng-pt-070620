@@ -1,3 +1,5 @@
 class MusicImporter
-  attr_accessor 
+  attr_accessor :path 
+  
+  def initialize
 end
