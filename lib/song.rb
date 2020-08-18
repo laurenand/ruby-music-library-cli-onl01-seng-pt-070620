@@ -51,15 +51,6 @@ class Song
     genre = Genre.find_or_create_by_name(data[2].chomp(“.mp3”))
     song = self.new(data[1], artist, genre)
   end
-    
-  def self.find_or_create_by_name(name)
-    self.find_by_name(name)
-    if !song.nil?
-      song
-    else
-      self.new(name)
-    end
-  end
  
   
 end
